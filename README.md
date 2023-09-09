@@ -10,3 +10,14 @@ ___
   <img src="https://github.com/laceratione/food-app/assets/43997427/9c038650-6ee6-4fca-8283-66eae8733e39" width="250" height="500">
   <img src="https://github.com/laceratione/food-app/assets/43997427/a9346f9b-4103-43e0-a6b0-c1cb906af819" width="250" height="500">
 </h1>
+
+___
+## Экран "Номер"
+Данный экран отображает следующую информацию:
+- название отеля в навигационной панели
+- список номеров отеля
+- каждый номер содержит следующие данные: фотографии номера, название, особенности, цена за количество дней отдыха
+- кнопка бронирования номера
+<h1 align="center">
+  <img src="https://github.com/laceratione/food-app/assets/43997427/eb5091db-1982-4bfe-bacd-c1ea8cb3a491" width="250" height="500">
+</h1>
