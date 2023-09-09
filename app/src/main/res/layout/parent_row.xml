@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="58dp"
+    android:layout_marginTop="8dp"
+    android:background="@drawable/shape_detail_info_hotel"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/parentTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_weight="1"
+        android:text="Второй турист"
+        android:textSize="22sp" />
+
+    <ImageView
+        android:id="@+id/parentIcon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="13dp"
+        android:background="@drawable/shape_btn_hide"
+        android:contentDescription="@string/contentdescription"
+        android:src="@drawable/ic_arrow_down" />
+</LinearLayout>
+

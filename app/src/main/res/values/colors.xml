@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="blue">#FF0D72FF</color>
+    <color name="blue_10">#1A0D72FF</color>
+    <color name="gray">#828796</color>
+    <color name="gray_2">#F6F6F9</color>
+    <color name="gray_3">#E8E9EC</color>
+
+    <color name="background_hotel">#F6F6F9</color>
+    <color name="rating_text">#FFA800</color>
+    <color name="rating_background">#33FFC700</color>
+    <color name="hotel_start_price_description">#828796</color>
+    <color name="hotel_description">#E6000000</color>
+    <color name="hotel_options_background">#FBFBFC</color>
+    <color name="option_title">#2C3035</color>
+    <color name="option_subtitle">#828796</color>
+    <color name="divider_hor">#26828796</color>
+    <color name="chip_text_color">#828796</color>
+    <color name="chip_back_color">#FBFBFC</color>
+
+    <color name="et_phone_color">#14142B</color>
+    <color name="error_color">#26EB5757</color>
+</resources>

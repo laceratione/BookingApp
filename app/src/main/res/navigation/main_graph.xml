@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/hotelFragment">
+
+    <fragment
+        android:id="@+id/hotelFragment"
+        android:name="ru.example.androidapp.presentation.hotel.HotelFragment"
+        android:label="HotelFragment"
+        tools:layout="@layout/fragment_hotel">
+        <action
+            android:id="@+id/action_hotelFragment_to_hotelRoomFragment"
+            app:destination="@id/hotelRoomFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hotelRoomFragment"
+        android:name="ru.example.androidapp.presentation.room.HotelRoomsFragment"
+        android:label="HotelRoomFragment"
+        tools:layout="@layout/fragment_hotel_room">
+        <action
+            android:id="@+id/action_hotelRoomFragment_to_bookingFragment"
+            app:destination="@id/bookingFragment" />
+        <argument
+            android:name="hotelName"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookingFragment"
+        android:name="ru.example.androidapp.presentation.booking.BookingFragment"
+        android:label="BookingFragment"
+        tools:layout="@layout/fragment_booking">
+        <action
+            android:id="@+id/action_bookingFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="ru.example.androidapp.presentation.payment.PaymentFragment"
+        android:label="PaymentFragment"
+        tools:layout="@layout/fragment_order_paid">
+        <action
+            android:id="@+id/action_paymentFragment_to_hotelFragment"
+            app:destination="@id/hotelFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize15Percent" parent="">
+        <item name="cornerSize">15%</item>
+    </style>
+
+    <style name="style_characteristic_tv">
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="style_characteristic_tv.Black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="style_characteristic_tv.WrapContent">
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="style_characteristic_tv.WrapContent.Black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="style_til_booking" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="boxBackgroundColor">@color/gray_2</item>
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeColor">@color/gray_2</item>
+        <item name="hintTextColor">@color/gray</item>
+<!--        <item name="hintTextAppearance">@color/gray</item>-->
+    </style>
+
+    <style name="style_et_booking">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">52dp</item>
+        <item name="android:fontFamily">@font/sf_prodisplay_medium</item>
+        <item name="android:inputType">text</item>
+        <item name="android:textColor">@color/et_phone_color</item>
+        <item name="android:textColorLink">#FFFFFF</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="style_et_booking.Phone">
+        <item name="android:inputType">phone</item>
+    </style>
+
+    <style name="style_et_booking.Email">
+        <item name="android:inputType">textEmailAddress</item>
+    </style>
+
+</resources>

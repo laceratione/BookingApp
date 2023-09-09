@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">AndroidApp</string>
+    <string name="hotel_title">Отель</string>
+    <string name="contentdescription">contentDescription</string>
+    <string name="rating_text">5 Превосходно</string>
+    <string name="hotel_name">Steigenberger Makadi</string>
+    <string name="hotel_location">Madinat Makadi, Safaga Road, Makadi Bay, Египет</string>
+    <string name="hotel_start_price">от 134 673 ₽</string>
+    <string name="hotel_start_price_description">за тур с перелётом</string>
+    <string name="about_hotel_title">Об отеле</string>
+    <string name="hotel_description">Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!</string>
+    <string name="option_subtitle">Самое необходимое</string>
+    <string name="btn_hotel_room">К выбору номера</string>
+    <string name="hotel_room_title">Steigenberger Makadi</string>
+    <string name="hotel_room_name">Стандартный с видом на бассейн или сад</string>
+    <string name="btn_details_about_room">Подробнее о номере</string>
+    <string name="btn_select_hotel_room">Выбрать номер</string>
+
+    <string name="error_load_data">Что-то пошло не так</string>
+    <string name="booking_title">Бронирование</string>
+    <string name="hint_til_phone">Номер телефона</string>
+    <string name="hint_til_email">Почта</string>
+    <string name="hint_til_name">Имя</string>
+    <string name="hint_til_second_name">Фамилия</string>
+    <string name="hint_til_date_birth">Дата рождения</string>
+    <string name="facilities_tv">Удобства</string>
+    <string name="options_on_tv">Что включено</string>
+    <string name="options_off_tv">Что не включено</string>
+    <string name="payment_title">Заказ оплачен</string>
+    <string name="payment_description">Подтверждение заказа №%1$s может\n занять некоторое время (от 1 часа до суток).\n Как только мы получим ответ от\n туроператора, вам на почту придет\n уведомление.</string>
+    <string name="payment_subtitle">Ваш заказ принят в работу</string>
+    <string name="payment_btn_text">Супер!</string>
+    <string name="warning_message_tv">Эти данные никому не передаются. После оплаты мы вышли чек на указанный вами номер и почту</string>
+
+    <string-array name="tourists">
+        <item>Первый турист</item>
+        <item>Второй турист</item>
+        <item>Третий турист</item>
+        <item>Четвертый турист</item>
+    </string-array>
+
+    <string name="error_empty">Поле не должно быть пустым</string>
+    <string name="error_not_valid">Поле введено некорректно</string>
+    <string name="max_count_tourists">Больше добавить нельзя</string>
+</resources>

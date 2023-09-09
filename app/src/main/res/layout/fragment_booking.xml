@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingTop="19dp"
+        android:paddingBottom="16dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="16dp"
+            android:contentDescription="@string/contentdescription"
+            android:src="@drawable/ic_arrow_left" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/booking_title"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/shape_detail_info_hotel"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_rating"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp">
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:contentDescription="@string/contentdescription"
+                        android:src="@drawable/ic_rating" />
+
+                    <TextView
+                        android:id="@+id/rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:textColor="@color/rating_text"
+                        android:textSize="16sp"
+                        tools:text="5 Превосходно" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/hotelName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    tools:text="Hotel name" />
+
+                <TextView
+                    android:id="@+id/hotelAdress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/blue"
+                    android:textSize="14sp"
+                    tools:text="Hotel adress" />
+            </LinearLayout>
+
+            <TableLayout
+                android:id="@+id/tablelayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/shape_detail_info_hotel"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp">
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_weight="0.45"
+                        style="@style/style_characteristic_tv"
+                        android:text="Вылет из" />
+
+                    <TextView
+                        android:id="@+id/departure"
+                        style="@style/style_characteristic_tv.Black"
+                        android:layout_weight="0.55"
+                        tools:text="Санкт-Петербург" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_weight="0.45"
+                        style="@style/style_characteristic_tv"
+                        android:text="Страна, город" />
+
+                    <TextView
+                        android:id="@+id/arrivalCountry"
+                        style="@style/style_characteristic_tv.Black"
+                        android:layout_weight="0.55"
+                        tools:text="Египет, Хургада" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_weight="0.45"
+                        style="@style/style_characteristic_tv"
+                        android:text="Даты" />
+
+                    <TextView
+                        android:id="@+id/date"
+                        style="@style/style_characteristic_tv.Black"
+                        android:layout_weight="0.55"
+                        tools:text="19.09.2023-26.09.2023" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_weight="0.45"
+                        style="@style/style_characteristic_tv"
+                        android:text="Кол-во ночей" />
+
+                    <TextView
+                        android:id="@+id/numberNights"
+                        style="@style/style_characteristic_tv.Black"
+                        android:layout_weight="0.55"
+                        tools:text="7 ночей" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_weight="0.45"
+                        style="@style/style_characteristic_tv"
+                        android:text="Отель" />
+
+                    <TextView
+                        android:id="@+id/hotel"
+                        style="@style/style_characteristic_tv.Black"
+                        android:layout_weight="0.55"
+                        tools:text="Syeemmvk Maladi" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_weight="0.45"
+                        style="@style/style_characteristic_tv"
+                        android:text="Номер" />
+
+                    <TextView
+                        android:id="@+id/room"
+                        style="@style/style_characteristic_tv.Black"
+                        android:layout_weight="0.55"
+                        tools:text="Стандартный" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_weight="0.45"
+                        style="@style/style_characteristic_tv"
+                        android:text="Питание" />
+
+                    <TextView
+                        android:id="@+id/nutrition"
+                        style="@style/style_characteristic_tv.Black"
+                        android:layout_weight="0.55"
+                        tools:text="Все включено" />
+                </TableRow>
+            </TableLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/shape_detail_info_hotel"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="Информация о покупателе"
+                    android:textColor="@color/black"
+                    android:textSize="22sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPhone"
+                    style="@style/style_til_booking"
+                    android:hint="@string/hint_til_phone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPhone"
+                        style="@style/style_et_booking" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEmail"
+                    style="@style/style_til_booking"
+                    android:hint="@string/hint_til_email">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEmail"
+                        style="@style/style_et_booking" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/warning_message_tv"
+                    android:textColor="@color/gray"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llAddTourist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/shape_detail_info_hotel"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:text="Добавить туриста"
+                    android:textSize="22sp" />
+
+                <ImageView
+                    android:id="@+id/btnAddTourist"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="13dp"
+                    android:background="@drawable/shape_btn_add"
+                    android:contentDescription="@string/contentdescription"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_plus" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/shape_detail_info_hotel"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingTop="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_weight="1"
+                        style="@style/style_characteristic_tv.WrapContent"
+                        android:text="Тур" />
+
+                    <TextView
+                        android:id="@+id/tourPrice"
+                        style="@style/style_characteristic_tv.WrapContent.Black"
+                        tools:text="186 000 Р" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/style_characteristic_tv"
+                        android:layout_weight="1"
+                        android:text="Топливный сбор" />
+
+                    <TextView
+                        android:id="@+id/fuelCharge"
+                        style="@style/style_characteristic_tv.WrapContent.Black"
+                        tools:text="9 300 Р" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/style_characteristic_tv"
+                        android:layout_weight="1"
+                        android:text="Сервисный сбор" />
+
+                    <TextView
+                        android:id="@+id/serviceCharge"
+                        style="@style/style_characteristic_tv.WrapContent.Black"
+                        tools:text="2 000 Р" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/style_characteristic_tv"
+                        android:layout_weight="1"
+                        android:text="К оплате" />
+
+                    <TextView
+                        android:id="@+id/totalSumm"
+                        style="@style/style_characteristic_tv.WrapContent.Black"
+                        android:textColor="@color/blue"
+                        tools:text="300 850 Р" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/shape_btn_bottom"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnPay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="@drawable/shape_btn_hotel_room"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    tools:text="Оплатить 198 036 Р" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
