@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="58dp"
     android:layout_marginTop="8dp"
@@ -13,8 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_weight="1"
-        android:text="Второй турист"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        tools:text="Второй турист" />
 
     <ImageView
         android:id="@+id/parentIcon"

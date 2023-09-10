@@ -25,13 +25,13 @@ class PaymentFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        with(binding){
+        with(binding) {
             val randomNumer = Random.nextInt(100000, 110000)
             tvDescription.text = getString(R.string.payment_description, randomNumer.toString())
             btnBack.setOnClickListener {
                 findNavController().popBackStack()
             }
-            btnOk.setOnClickListener{
+            btnOk.setOnClickListener {
                 findNavController().navigate(R.id.action_paymentFragment_to_hotelFragment)
             }
         }

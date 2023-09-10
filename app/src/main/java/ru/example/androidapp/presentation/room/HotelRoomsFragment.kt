@@ -11,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import ru.example.androidapp.R
 import ru.example.androidapp.databinding.FragmentHotelRoomBinding
-import ru.example.androidapp.presentation.hotel.HotelViewModelFactory
 import ru.example.domain.model.HotelRoom
 
 class HotelRoomsFragment : Fragment() {
@@ -46,18 +45,11 @@ class HotelRoomsFragment : Fragment() {
             hotelRoomsViewModel.uiState.collect { uiState ->
                 when (uiState) {
                     is HotelRoomsUiState.Success -> {
-//                        uiState.hotel?.let { updateScreen(it) }
-//                        updateScreen(uiState.hotel)
                         hotelRoomsAdapter.updateItems(uiState.hotelRooms)
                     }
 
-                    is HotelRoomsUiState.Error -> {
-//                        showError(uiState.exception)
-                    }
-
-                    is HotelRoomsUiState.Loading -> {
-//                        shimmerLayout.visibility = View.VISIBLE
-                    }
+                    is HotelRoomsUiState.Error -> {}
+                    is HotelRoomsUiState.Loading -> {}
                 }
             }
         }

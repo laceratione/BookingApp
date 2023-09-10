@@ -17,9 +17,9 @@ import ru.example.domain.model.HotelRoom
 import ru.example.domain.usecase.GetDataHotelRooms
 import javax.inject.Inject
 
-class HotelRoomsViewModel(application: Application): ViewModel() {
+class HotelRoomsViewModel(application: Application) : ViewModel() {
     private val _uiState: MutableStateFlow<HotelRoomsUiState> =
-            MutableStateFlow(HotelRoomsUiState.Success(emptyList()))
+        MutableStateFlow(HotelRoomsUiState.Success(emptyList()))
     val uiState: StateFlow<HotelRoomsUiState> = _uiState.asStateFlow()
 
     @Inject

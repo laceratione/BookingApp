@@ -2,23 +2,18 @@ package ru.example.androidapp.presentation.room
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
-import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
-import com.google.android.material.shape.CornerFamily
-import ru.example.androidapp.R
+import ru.example.androidapp.common.Utils
 import ru.example.androidapp.databinding.HotelRoomBinding
+import ru.example.androidapp.view.MyChip
 import ru.example.domain.model.HotelRoom
-import java.text.DecimalFormat
-import java.text.NumberFormat
-import java.util.Locale
 
-class HotelRoomsAdapter(private val listener: OnSelectRoomClickListener) : RecyclerView.Adapter<HotelRoomsAdapter.ViewHolder>() {
+class HotelRoomsAdapter(private val listener: OnSelectRoomClickListener) :
+    RecyclerView.Adapter<HotelRoomsAdapter.ViewHolder>() {
     private var hotelRooms: List<HotelRoom> = emptyList()
 
     interface OnSelectRoomClickListener {
@@ -30,7 +25,7 @@ class HotelRoomsAdapter(private val listener: OnSelectRoomClickListener) : Recyc
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
             HotelRoomBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(binding, parent.context,listener)
+        return ViewHolder(binding, parent.context, listener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -43,18 +38,18 @@ class HotelRoomsAdapter(private val listener: OnSelectRoomClickListener) : Recyc
         notifyDataSetChanged()
     }
 
-    class ViewHolder(private val binding: HotelRoomBinding, private val context: Context,
-        private val listener: OnSelectRoomClickListener) :
+    class ViewHolder(
+        private val binding: HotelRoomBinding,
+        private val context: Context,
+        private val listener: OnSelectRoomClickListener
+    ) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(room: HotelRoom) {
             binding.nameRoom.text = room.name
-            binding.priceRoom.text = "${formatNumber(room.price)} ₽"
+            binding.priceRoom.text = "${Utils.formatNumber(room.price)} ₽"
             binding.pricePer.text = room.pricePer
 
-            val chipGroup: ChipGroup = binding.chipGroup
-            room.peculiarities.forEach { tagName ->
-                chipGroup.addView(createChip(tagName))
-            }
+            initChipGroup(room.peculiarities)
 
             val images = ArrayList<SlideModel>()
             images.addAll(room.imageUrls.map { url -> SlideModel(url, ScaleTypes.CENTER_CROP) })
@@ -65,32 +60,11 @@ class HotelRoomsAdapter(private val listener: OnSelectRoomClickListener) : Recyc
             }
         }
 
-        private fun createChip(name: String): Chip {
-            return Chip(context).apply {
-                text = name
-                textSize = 16f
-                textAlignment = View.TEXT_ALIGNMENT_CENTER
-                setChipBackgroundColorResource(R.color.chip_back_color)
-                setCheckedIconVisible(false)
-                setCloseIconVisible(false)
-                setTextColor(ContextCompat.getColorStateList(context, R.color.chip_text_color))
-                isCheckable = false
-                isClickable = false
-                shapeAppearanceModel = shapeAppearanceModel
-                    .toBuilder()
-                    .setAllCorners(CornerFamily.ROUNDED, 30F)
-                    .build()
-                chipStrokeWidth = 0f
+        fun initChipGroup(tags: List<String>){
+            val chipGroup: ChipGroup = binding.chipGroup
+            tags.forEach { tagName ->
+                chipGroup.addView(MyChip.createChip(tagName, context))
             }
         }
-
-        private fun formatNumber(number: Int): String{
-            val formatter: DecimalFormat = NumberFormat.getInstance(Locale.US) as DecimalFormat
-            formatter.applyPattern("#,###")
-            return formatter.format(number).replace(",", " ")
-        }
     }
-
-
-
 }

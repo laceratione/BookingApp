@@ -32,13 +32,8 @@ class BookingViewModel(application: Application) : ViewModel() {
     private val _emailError: MutableLiveData<EmailError> = MutableLiveData()
     val emailError: LiveData<EmailError> = _emailError
 
-//    var countTourists: Int = 1
     val countWord: List<String> =
         application.resources.getStringArray(R.array.tourists).toList()
-//    val currentTourist: String
-//        get() {
-//            return countWord[countTourists]
-//        }
 
     private var _login: String = ""
 

@@ -32,28 +32,28 @@
         android:layout_height="wrap_content" />
 
     <LinearLayout
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@drawable/shape_btn_details_about_room"
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <TextView
-            android:paddingVertical="5dp"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/blue"
-            android:textSize="16sp"
-            android:text="@string/btn_details_about_room"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:paddingVertical="5dp"
+            android:text="@string/btn_details_about_room"
+            android:textColor="@color/blue"
+            android:textSize="16sp" />
 
         <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginStart="2dp"
             android:contentDescription="@string/contentdescription"
-            android:src="@drawable/arrow_right_blue"
-            android:layout_width="24dp"
-            android:layout_height="24dp"/>
+            android:src="@drawable/arrow_right_blue" />
     </LinearLayout>
 
     <LinearLayout

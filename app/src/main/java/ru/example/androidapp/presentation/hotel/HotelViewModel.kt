@@ -11,7 +11,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.observeOn
 import kotlinx.coroutines.launch
 import ru.example.androidapp.App
 import ru.example.domain.model.Hotel
@@ -23,6 +22,8 @@ class HotelViewModel(application: Application) : ViewModel() {
         MutableStateFlow(HotelUiState.Success(null))
     val uiState: StateFlow<HotelUiState> = _uiState.asStateFlow()
 
+    private var _hotel: Hotel? = null
+
     @Inject
     lateinit var hotelUseCase: GetDataHotel
 
@@ -33,6 +34,8 @@ class HotelViewModel(application: Application) : ViewModel() {
             getDataHotel()
         }
     }
+
+    fun getHotelName() = _hotel?.name
 
     suspend fun getDataHotel() = coroutineScope {
         _uiState.value = HotelUiState.Loading()
@@ -46,6 +49,7 @@ class HotelViewModel(application: Application) : ViewModel() {
                 .collect { hotel ->
                     launch {
                         _uiState.value = HotelUiState.Success(hotel)
+                        _hotel = hotel
                     }
                 }
         }

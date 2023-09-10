@@ -24,7 +24,8 @@
             app:destination="@id/bookingFragment" />
         <argument
             android:name="hotelName"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/bookingFragment"

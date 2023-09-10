@@ -39,7 +39,30 @@
         <item>Четвертый турист</item>
     </string-array>
 
+    <string-array name="fields">
+        <item>Имя</item>
+        <item>Фамилия</item>
+        <item>Дата рождения</item>
+        <item>Гражданство</item>
+        <item>Номер загранпаспорта</item>
+        <item>Срок действия загранпаспорта</item>
+    </string-array>
+
     <string name="error_empty">Поле не должно быть пустым</string>
     <string name="error_not_valid">Поле введено некорректно</string>
     <string name="max_count_tourists">Больше добавить нельзя</string>
+
+    <string name="departure_tv">Вылет из</string>
+    <string name="location_tv">Страна, город</string>
+    <string name="dates_tv">Даты</string>
+    <string name="count_nights_tv">Кол-во ночей</string>
+    <string name="hotel_tv">Отель</string>
+    <string name="room_tv">Номер</string>
+    <string name="nutrition_tv">Питание</string>
+    <string name="info_about_buyer_tv">Информация о покупателе</string>
+    <string name="add_tourist_tv">Добавить туриста</string>
+    <string name="tour_tv">Тур</string>
+    <string name="fuel_charge_tv">Топливный сбор</string>
+    <string name="service_charge_tv">Сервисный сбор</string>
+    <string name="total_summ_tv">К оплате</string>
 </resources>

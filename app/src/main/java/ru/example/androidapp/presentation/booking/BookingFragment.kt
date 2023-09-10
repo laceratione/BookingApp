@@ -1,15 +1,11 @@
 package ru.example.androidapp.presentation.booking
 
-import android.graphics.Color
 import android.os.Bundle
-import android.text.InputType
-import android.text.method.DigitsKeyListener
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.core.view.contains
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
@@ -19,18 +15,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import com.redmadrobot.inputmask.MaskedTextChangedListener.Companion.installOn
 import ru.example.androidapp.R
+import ru.example.androidapp.common.Utils
 import ru.example.androidapp.databinding.FragmentBookingBinding
 import ru.example.domain.model.BookingData
-import java.text.DecimalFormat
-import java.text.NumberFormat
-import java.util.Locale
 
 class BookingFragment : Fragment() {
     lateinit var binding: FragmentBookingBinding
     private val bookingViewModel: BookingViewModel by activityViewModels() {
         BookingViewModelFactory(requireActivity().application)
     }
-
     private var listExpView: MutableList<RecyclerView> = mutableListOf()
 
     override fun onCreateView(
@@ -58,25 +51,26 @@ class BookingFragment : Fragment() {
             }
         }
 
-        if (listExpView.size == 0) {
-            val expView = getExpandableRecyclerView("Первый турист")
-            binding.llAddTourist.addView(expView)
-            listExpView.add(expView)
-        } else {
-            initExpViews()
-        }
+        initTouristViews()
+        initButtons()
+        initLoginMask()
+        observeLoginError()
+        observeEmailError()
+    }
 
+    private fun initButtons() {
         with(binding) {
             btnBack.setOnClickListener {
                 findNavController().popBackStack()
             }
             btnAddTourist.setOnClickListener {
-//                bookingViewModel.countTourists++
-                if (listExpView.size == 4){
-                    Toast.makeText(requireContext(),
-                        getString(R.string.max_count_tourists), Toast.LENGTH_SHORT).show()
-                }
-                else{
+                if (listExpView.size == 4) {
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.max_count_tourists),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
                     val expView =
                         getExpandableRecyclerView(bookingViewModel.countWord[listExpView.size])
                     binding.llAddTourist.addView(expView)
@@ -87,12 +81,7 @@ class BookingFragment : Fragment() {
                 if (bookingViewModel.validateForm(binding.etEmail.text.toString()))
                     findNavController().navigate(R.id.action_bookingFragment_to_paymentFragment)
             }
-
         }
-
-        initLoginMask()
-        observeLoginError()
-        observeEmailError()
     }
 
     private fun updateScreen(bookingData: BookingData) {
@@ -108,35 +97,22 @@ class BookingFragment : Fragment() {
             hotel.text = bookingData.hotelName
             room.text = bookingData.room
             nutrition.text = bookingData.nutrition
-            tourPrice.text = "${formatNumber(bookingData.tourPrice)} ₽"
-            fuelCharge.text = "${formatNumber(bookingData.fuelCharge)} ₽"
-            serviceCharge.text = "${formatNumber(bookingData.serviceCharge)} ₽"
+            tourPrice.text = "${Utils.formatNumber(bookingData.tourPrice)} ₽"
+            fuelCharge.text = "${Utils.formatNumber(bookingData.fuelCharge)} ₽"
+            serviceCharge.text = "${Utils.formatNumber(bookingData.serviceCharge)} ₽"
 
             val summ = bookingData.tourPrice + bookingData.fuelCharge + bookingData.serviceCharge
-            val formatSumm = "${formatNumber(summ)} ₽"
+            val formatSumm = "${Utils.formatNumber(summ)} ₽"
             totalSumm.text = formatSumm
             btnPay.text = "Оплатить $formatSumm"
         }
     }
 
-    private fun formatNumber(number: Int): String {
-        val formatter: DecimalFormat = NumberFormat.getInstance(Locale.US) as DecimalFormat
-        formatter.applyPattern("#,###")
-        return formatter.format(number).replace(",", " ")
-    }
-
     private fun getExpandableRecyclerView(name: String): RecyclerView {
         val listData: MutableList<ParentData> = ArrayList()
         val parentData: Array<String> = arrayOf(name)
-        val childDataData1: MutableList<ChildData> =
-            mutableListOf(
-                ChildData("Имя"),
-                ChildData("Фамилия"),
-                ChildData("Дата рождения"),
-                ChildData("Гражданство"),
-                ChildData("Номер загранпаспорта"),
-                ChildData("Срок действия загранпаспорта")
-            )
+        val fields: List<String> = resources.getStringArray(R.array.fields).toList()
+        val childDataData1: MutableList<ChildData> = fields.map { ChildData(it) }.toMutableList()
 
         val parentObj1 = ParentData(parentTitle = parentData[0], subList = childDataData1)
         listData.add(parentObj1)
@@ -148,11 +124,17 @@ class BookingFragment : Fragment() {
         return exRecyclerView
     }
 
-    private fun initExpViews() {
-        for (item in listExpView) {
-            if (item.parent != null)
-                (item.parent as ViewGroup).removeView(item)
-            binding.llAddTourist.addView(item)
+    private fun initTouristViews() {
+        if (listExpView.size == 0) {
+            val expView = getExpandableRecyclerView(bookingViewModel.countWord.get(0))
+            binding.llAddTourist.addView(expView)
+            listExpView.add(expView)
+        } else {
+            for (item in listExpView) {
+                if (item.parent != null)
+                    (item.parent as ViewGroup).removeView(item)
+                binding.llAddTourist.addView(item)
+            }
         }
     }
 
@@ -178,12 +160,14 @@ class BookingFragment : Fragment() {
             when (loginError) {
                 LoginError.EMPTY -> {
                     binding.tilPhone.error = getString(R.string.error_empty)
-                    binding.tilPhone.boxBackgroundColor = ContextCompat.getColor(requireContext(), R.color.error_color)
+                    binding.tilPhone.boxBackgroundColor =
+                        ContextCompat.getColor(requireContext(), R.color.error_color)
                 }
 
                 LoginError.NOT_VALID -> {
                     binding.tilPhone.error = getString(R.string.error_not_valid)
-                    binding.tilPhone.boxBackgroundColor = ContextCompat.getColor(requireContext(), R.color.error_color)
+                    binding.tilPhone.boxBackgroundColor =
+                        ContextCompat.getColor(requireContext(), R.color.error_color)
                 }
 
                 LoginError.VALID -> {
@@ -200,12 +184,14 @@ class BookingFragment : Fragment() {
             when (emailError) {
                 EmailError.EMPTY -> {
                     binding.tilEmail.error = getString(R.string.error_empty)
-                    binding.tilEmail.boxBackgroundColor = ContextCompat.getColor(requireContext(), R.color.error_color)
+                    binding.tilEmail.boxBackgroundColor =
+                        ContextCompat.getColor(requireContext(), R.color.error_color)
                 }
 
                 EmailError.NOT_VALID -> {
                     binding.tilEmail.error = getString(R.string.error_not_valid)
-                    binding.tilEmail.boxBackgroundColor = ContextCompat.getColor(requireContext(), R.color.error_color)
+                    binding.tilEmail.boxBackgroundColor =
+                        ContextCompat.getColor(requireContext(), R.color.error_color)
                 }
 
                 EmailError.VALID -> {
