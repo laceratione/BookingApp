@@ -47,3 +47,16 @@ ___
 <h1 align="center">
   <img src="https://github.com/laceratione/food-app/assets/43997427/10cd749a-d7ee-4281-a714-aee4d699a588" width="250" height="500">
 </h1>
+
+___
+## Стек используемых технологий
+- ЯП Kotlin
+- Kotlin Coroutines
+- Kotlin Flow
+- Retrofit2
+- Dagger2
+- MVVM
+- Clean Architecture
+- Navigation Architecture Component
+
+___
