@@ -61,9 +61,3 @@ ___
 
 ___
 
-___
-## Демонстрация приложения
-
-https://github.com/laceratione/BookingApp/assets/43997427/590cdf58-749a-4e60-a4f0-ba4b64212c1b
-
-___
