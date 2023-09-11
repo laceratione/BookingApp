@@ -172,6 +172,8 @@ class BookingFragment : Fragment() {
 
                 LoginError.VALID -> {
                     binding.tilPhone.error = null
+                    binding.tilPhone.boxBackgroundColor =
+                        ContextCompat.getColor(requireContext(), R.color.gray_2)
                 }
 
                 else -> {}
@@ -196,6 +198,8 @@ class BookingFragment : Fragment() {
 
                 EmailError.VALID -> {
                     binding.tilEmail.error = null
+                    binding.tilEmail.boxBackgroundColor =
+                        ContextCompat.getColor(requireContext(), R.color.gray_2)
                 }
 
                 else -> {}
